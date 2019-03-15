@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>FizzBuzz in JS</title>
+</head>
+
+<body>
+
+    <h1>Fizz Buzz Test in JavaScript</h1>
+    <p>"Write a program that prints the numbers from 1 to 100. But for multiples of three print 'Fizz' instead of the number and for multiples of five print "Buzz". For numbers which are multiples of both three and five print 'FizzBuzz'."</p>
+
+    <h2>Results</h2>
+    <h5>Right-click, 'View Page Source' for source code, or <a href="https://github.com/adamschellenberg/fizzbuzz-test-js" target="_blank">click here to view source code on Github</a></h5>
+
+    <div id="output"></div>
+
+    <script>
+    
+        var outputDiv = document.getElementById("output");
+        var outputString = "";
+        
+        var isMultipleOfThree = false;
+        var isMultipleOfFive = false;
+
+        for (var i=1; i<101; i++) {
+            outputString = "";
+
+            IsMultipleOfThreeCheck(i);
+            IsMultipleOfFiveCheck(i);
+
+            if (isMultipleOfThree === true){
+                outputString += "Fizz";
+            }
+            if (isMultipleOfFive === true){
+                outputString += "Buzz";
+            }
+            if (isMultipleOfThree === false && isMultipleOfFive === false) {
+                // append string and add i
+                outputString = i;
+            }
+
+            outputDiv.innerHTML += outputString + "</br>";
+        }
+
+        function IsMultipleOfThreeCheck(currentInt) {
+            // check if multiple of three
+            if (currentInt % 3 === 0) {
+                // if yes, isMultipleOfThree = true
+                isMultipleOfThree = true;
+            }
+            else {
+                // else, isMultipleOfThree = false
+                isMultipleOfThree = false;
+            }
+
+        }
+
+        function IsMultipleOfFiveCheck(currentInt) {
+            // check if multiple of five
+            if (currentInt % 5 === 0) {
+                // if yes, isMultipleOfFive = true
+                isMultipleOfFive = true;
+            }
+            else {
+                // else, isMultipleOfFive = false
+                isMultipleOfFive = false;
+            }
+        }
+    
+    </script>
+
+</body>
+</html>
